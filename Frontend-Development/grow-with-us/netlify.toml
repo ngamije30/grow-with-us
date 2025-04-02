@@ -1,0 +1,37 @@
+[build]
+  publish = "./"
+  command = "echo 'Static site, no build needed'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  framework = "#static"
+  command = "bun run dev"
+  port = 5173
+
+[images]
+  remote_images = [
+    "https://media.istockphoto.com/*",
+    "https://thumbs.dreamstime.com/*",
+    "https://bridgepointconsulting.com/*",
+    "https://images.squarespace-cdn.com/*",
+    "https://www.aag.org/*",
+    "https://africanway.world/*",
+    "https://www.ecdc.europa.eu/*",
+    "https://certnexus.com/*",
+    "https://photos.peopleimages.com/*",
+    "https://www.shutterstock.com/*",
+    "https://as1.ftcdn.net/*",
+    "https://as2.ftcdn.net/*",
+    "https://content-media.pamedia.io/*",
+    "https://oregonworkforcepartnership.org/*",
+    "https://www.98thpercentile.com/*",
+    "https://www.omfif.org/*",
+    "https://assets.justinmind.com/*"
+  ]

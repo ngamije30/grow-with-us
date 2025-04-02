@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Mentor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Grow withUs</div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="mentorship.html" class="active">Mentorship</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="login.html" class="nav-cta">Login</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation" id="nav-toggle">☰</button>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Find Your Mentor</h1>
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="current">Mentorship</span>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="mentorship-intro">
+            <div class="container">
+                <h2 class="section-title">Why Mentorship Matters</h2>
+                <div class="mentorship-benefits">
+                    <div class="benefit-card">
+                        <i class="fas fa-lightbulb benefit-icon"></i>
+                        <h3>Guidance</h3>
+                        <p>Receive personalized guidance from professionals who have walked the path before you.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-network-wired benefit-icon"></i>
+                        <h3>Networking</h3>
+                        <p>Build valuable industry connections that can open doors to new opportunities.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line benefit-icon"></i>
+                        <h3>Growth</h3>
+                        <p>Accelerate your career growth through targeted advice and skill development.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-comment-dots benefit-icon"></i>
+                        <h3>Feedback</h3>
+                        <p>Get honest feedback on your work and approaches from experienced professionals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mentors-filter">
+            <div class="container">
+                <h2>Find the Perfect Mentor</h2>
+                <form class="mentors-search-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search by name or expertise" id="mentor-search">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="mentor-industry">
+                                <option value="">All Industries</option>
+                                <option value="technology">Technology</option>
+                                <option value="finance">Finance</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="education">Education</option>
+                                <option value="entrepreneurship">Entrepreneurship</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Find Mentors</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="mentors-listing">
+            <div class="container">
+                <h3 class="section-subtitle">Our Featured Mentors</h3>
+
+                <div class="mentor-card">
+                    <img src="../images/mentor-1.jpg" alt="Oluwaseun Adeyemi" class="mentor-image">
+                    <div class="mentor-info">
+                        <h3 class="mentor-name">Oluwaseun Adeyemi</h3>
+                        <p class="mentor-title">CTO at TechAfrica Solutions</p>
+                        <p class="mentor-bio">With over 15 years of experience in software engineering and leadership, Oluwaseun helps mentees build technical skills and navigate career transitions into tech leadership roles.</p>
+                        <div class="mentor-skills">
+                            <span class="mentor-skill">Software Engineering</span>
+                            <span class="mentor-skill">Leadership</span>
+                            <span class="mentor-skill">Product Development</span>
+                            <span class="mentor-skill">Career Transitions</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="mentor-card">
+                    <img src="../images/mentor-2.jpg" alt="Amina Ibrahim" class="mentor-image">
+                    <div class="mentor-info">
+                        <h3 class="mentor-name">Amina Ibrahim</h3>
+                        <p class="mentor-title">Marketing Director at AfriMarket Group</p>
+                        <p class="mentor-bio">Amina specializes in digital marketing strategies for African markets. She's passionate about helping young marketers understand unique local consumer behaviors and build effective campaigns.</p>
+                        <div class="mentor-skills">
+                            <span class="mentor-skill">Digital Marketing</span>
+                            <span class="mentor-skill">Brand Strategy</span>
+                            <span class="mentor-skill">Market Research</span>
+                            <span class="mentor-skill">Content Creation</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="mentor-card">
+                    <img src="../images/mentor-3.jpg" alt="Keza sylivie" class="mentor-image">
+                    <div class="mentor-info">
+                        <h3 class="mentor-name">Keza sylivie</h3>
+                        <p class="mentor-title">Senior Investment Analyst at AfriBank</p>
+                        <p class="mentor-bio">John has 10+ years of experience in financial analysis and investment banking. He helps mentees understand financial markets, improve their analytical skills, and prepare for finance careers.</p>
+                        <div class="mentor-skills">
+                            <span class="mentor-skill">Financial Analysis</span>
+                            <span class="mentor-skill">Investment Strategy</span>
+                            <span class="mentor-skill">Risk Management</span>
+                            <span class="mentor-skill">Portfolio Management</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="mentor-card">
+                    <img src="../images/mentor-4.jpg" alt="Grace Mwangi" class="mentor-image">
+                    <div class="mentor-info">
+                        <h3 class="mentor-name">Grace Mwangi</h3>
+                        <p class="mentor-title">Founder & CEO of EduTech Kenya</p>
+                        <p class="mentor-bio">As a successful entrepreneur, Grace mentors aspiring business owners on startup strategies, funding, and scaling businesses in the African market. She's particularly passionate about women in entrepreneurship.</p>
+                        <div class="mentor-skills">
+                            <span class="mentor-skill">Entrepreneurship</span>
+                            <span class="mentor-skill">Business Strategy</span>
+                            <span class="mentor-skill">Fundraising</span>
+                            <span class="mentor-skill">Women in Business</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <a href="#" class="pagination-link active">1</a>
+                    <a href="#" class="pagination-link">2</a>
+                    <a href="#" class="pagination-link">3</a>
+                    <a href="#" class="pagination-link next">Next <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="become-mentor">
+            <div class="container">
+                <div class="become-mentor-content">
+                    <div class="become-mentor-text">
+                        <h2>Become a Mentor</h2>
+                        <p>Share your expertise and give back to the African professional community by becoming a mentor. Help shape the next generation of talent across the continent.</p>
+                        <ul class="become-mentor-benefits">
+                            <li><i class="fas fa-check-circle"></i> Develop your leadership skills</li>
+                            <li><i class="fas fa-check-circle"></i> Expand your professional network</li>
+                            <li><i class="fas fa-check-circle"></i> Gain fresh perspectives from mentees</li>
+                            <li><i class="fas fa-check-circle"></i> Make a meaningful impact on African careers</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Apply to Be a Mentor</a>
+                    </div>
+                    <div class="become-mentor-image">
+                        <img src="../images/become-mentor.jpg" alt="Become a mentor">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Accelerate Your Career Growth?</h2>
+                <p>Connect with experienced mentors who can guide you on your professional journey.</p>
+                <a href="signup.html" class="btn btn-cta">Get Started Today</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">Grow withUs</h3>
+                    <p class="footer-desc">Empowering African careers through opportunities, mentorship, and skills.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="mentorship.html">Mentorship</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Career Tips</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@growwithus.com</p>
+                    <p><i class="fas fa-phone"></i> +250785210159</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grow withUs. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

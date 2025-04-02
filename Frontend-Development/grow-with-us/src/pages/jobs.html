@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Opportunities</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Grow withUs</div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="jobs.html" class="active">Jobs</a></li>
+                    <li><a href="mentorship.html">Mentorship</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="login.html" class="nav-cta">Login</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation" id="nav-toggle">☰</button>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Job Opportunities</h1>
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="current">Jobs</span>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="jobs-section">
+            <div class="container">
+                <div class="jobs-filter">
+                    <h2>Find Your Perfect Job</h2>
+                    <form class="jobs-search-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Job title, keywords, or company" id="job-search">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <select class="form-control" id="job-location">
+                                    <option value="">All Locations</option>
+                                    <option value="lagos">Lagos, Nigeria</option>
+                                    <option value="nairobi">Nairobi, Kenya</option>
+                                    <option value="accra">Kigali, Rwanda</option>
+                                    <option value="johannesburg">Johannesburg, South Africa</option>
+                                    <option value="cairo">Cairo, Egypt</option>
+                                    <option value="remote">Remote</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="job-category">
+                                    <option value="">All Categories</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="finance">Finance</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="education">Education</option>
+                                    <option value="agriculture">Agriculture</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Search Jobs</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="job-listings">
+                    <h3 class="section-subtitle">Latest Job Listings</h3>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Senior Software Engineer</h3>
+                                <p class="job-company">TechAfrica Solutions</p>
+                                <p class="job-location"><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+                            </div>
+                            <img src="../images/company-1.jpg" alt="TechAfrica Solutions" class="job-logo">
+                        </div>
+                        <div class="job-details">
+                            <span class="job-tag">Full-time</span>
+                            <span class="job-tag">5+ years experience</span>
+                            <span class="job-tag">React</span>
+                            <span class="job-tag">Node.js</span>
+                            <p class="job-salary"><i class="fas fa-money-bill-wave"></i> $60,000 - $80,000 per year</p>
+                            <p class="job-desc">We are looking for a Senior Software Engineer to join our growing team. The ideal candidate will have strong experience with modern JavaScript frameworks and a passion for building scalable web applications.</p>
+                        </div>
+                        <div class="job-footer">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                            <p class="job-date">Posted 2 days ago</p>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Marketing Manager</h3>
+                                <p class="job-company">AfriMarket Solutions</p>
+                                <p class="job-location"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                            </div>
+                            <img src="../images/company-2.jpg" alt="AfriMarket Solutions" class="job-logo">
+                        </div>
+                        <div class="job-details">
+                            <span class="job-tag">Full-time</span>
+                            <span class="job-tag">3+ years experience</span>
+                            <span class="job-tag">Digital Marketing</span>
+                            <span class="job-tag">Brand Development</span>
+                            <p class="job-salary"><i class="fas fa-money-bill-wave"></i> $45,000 - $55,000 per year</p>
+                            <p class="job-desc">We're seeking an experienced Marketing Manager to lead our digital marketing efforts across Africa. You'll be responsible for developing and implementing marketing strategies that drive growth.</p>
+                        </div>
+                        <div class="job-footer">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                            <p class="job-date">Posted 5 days ago</p>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Financial Analyst</h3>
+                                <p class="job-company">AfriBank International</p>
+                                <p class="job-location"><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+                            </div>
+                            <img src="../images/company-3.jpg" alt="AfriBank International" class="job-logo">
+                        </div>
+                        <div class="job-details">
+                            <span class="job-tag">Full-time</span>
+                            <span class="job-tag">2+ years experience</span>
+                            <span class="job-tag">Financial Modeling</span>
+                            <span class="job-tag">Data Analysis</span>
+                            <p class="job-salary"><i class="fas fa-money-bill-wave"></i> $40,000 - $50,000 per year</p>
+                            <p class="job-desc">AfriBank International is looking for a Financial Analyst to join our team in Accra. The ideal candidate will have strong analytical skills and experience with financial modeling and forecasting.</p>
+                        </div>
+                        <div class="job-footer">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                            <p class="job-date">Posted 1 week ago</p>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Product Designer</h3>
+                                <p class="job-company">InnovateTech Africa</p>
+                                <p class="job-location"><i class="fas fa-map-marker-alt"></i> Remote</p>
+                            </div>
+                            <img src="../images/company-4.jpg" alt="InnovateTech Africa" class="job-logo">
+                        </div>
+                        <div class="job-details">
+                            <span class="job-tag">Full-time</span>
+                            <span class="job-tag">3+ years experience</span>
+                            <span class="job-tag">UI/UX</span>
+                            <span class="job-tag">Figma</span>
+                            <p class="job-salary"><i class="fas fa-money-bill-wave"></i> $50,000 - $65,000 per year</p>
+                            <p class="job-desc">We are looking for a talented Product Designer to create amazing user experiences. The ideal candidate should have a strong portfolio demonstrating their ability to solve complex design challenges.</p>
+                        </div>
+                        <div class="job-footer">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                            <p class="job-date">Posted 3 days ago</p>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <a href="#" class="pagination-link active">1</a>
+                        <a href="#" class="pagination-link">2</a>
+                        <a href="#" class="pagination-link">3</a>
+                        <a href="#" class="pagination-link next">Next <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Not Finding What You're Looking For?</h2>
+                <p>Upload your resume and we'll notify you when relevant job opportunities become available.</p>
+                <a href="signup.html" class="btn btn-cta">Upload Your Resume</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">Grow withUs</h3>
+                    <p class="footer-desc">Empowering African careers through opportunities, mentorship, and skills.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="mentorship.html">Mentorship</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Career Tips</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@growwithus.com</p>
+                    <p><i class="fas fa-phone"></i> +250785210159</p>
+                    <p><i class="fas fa-map-marker-alt"></i> kigali, Rwanda</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grow withUs. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

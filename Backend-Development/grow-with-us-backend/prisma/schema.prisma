@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String              @id @default(uuid())
+  email             String              @unique
+  password          String
+  name              String
+  profileImage      String?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  twoFactorEnabled  Boolean             @default(false)
+  twoFactorSecret   String?
+  lastLogin         DateTime?
+  isOnline          Boolean             @default(false)
+  sentMessages      Message[]           @relation("SentMessages")
+  receivedMessages  Message[]           @relation("ReceivedMessages")
+  mediaUploads      MediaUpload[]
+  notifications     Notification[]
+  activities        UserActivity[]
+  engagements       ContentEngagement[]
+}
+
+model Message {
+  id          String   @id @default(uuid())
+  content     String
+  createdAt   DateTime @default(now())
+  senderId    String
+  receiverId  String
+  isRead      Boolean  @default(false)
+  sender      User     @relation("SentMessages", fields: [senderId], references: [id])
+  receiver    User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+}
+
+model MediaUpload {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  type      String   // "IMAGE" | "VIDEO" | "DOCUMENT"
+  url       String
+  filename  String
+  size      Int
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  type      String   // "EMAIL" | "PUSH"
+  title     String
+  content   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model UserActivity {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  type      String   // "LOGIN" | "UPLOAD" | "MESSAGE" | etc.
+  metadata  Json?
+  createdAt DateTime @default(now())
+}
+
+model ContentEngagement {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  contentId String   // This could be a message ID, media ID, etc.
+  type      String   // "VIEW" | "LIKE" | "SHARE" | etc.
+  createdAt DateTime @default(now())
+}
