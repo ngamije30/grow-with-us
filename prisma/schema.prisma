@@ -12,3 +12,445 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// User model for authentication and profile information
+model User {
+  id                String    @id @default(cuid())
+  email             String    @unique
+  password          String
+  firstName         String
+  lastName          String
+  profileImage      String?
+  jobTitle          String?
+  company           String?
+  location          String?
+  bio               String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  role              Role      @default(USER)
+  isEmailVerified   Boolean   @default(false)
+  emailVerificationToken String?
+  resetPasswordToken String?
+  resetPasswordExpires DateTime?
+  
+  // Relations
+  skills            UserSkill[]
+  education         Education[]
+  experience        Experience[]
+  socialLinks       SocialLink[]
+  jobApplications   JobApplication[]
+  savedJobs         SavedJob[]
+  enrolledCourses   CourseEnrollment[]
+  courseProgress    CourseProgress[]
+  mentorConnectionsAsMentor MentorConnection[] @relation("MentorConnections")
+  mentorConnectionsAsMentee MentorConnection[] @relation("MenteeConnections")
+  mentorRequestsAsMentor    MentorRequest[] @relation("MentorRequests")
+  mentorRequestsAsMentee    MentorRequest[] @relation("MenteeRequests")
+  sentMessages      Message[] @relation("SentMessages")
+  receivedMessages  Message[] @relation("ReceivedMessages")
+  notifications     Notification[]
+}
+
+// Role enum for user permissions
+enum Role {
+  USER
+  MENTOR
+  ADMIN
+}
+
+// Skills model for user skills
+model UserSkill {
+  id        String   @id @default(cuid())
+  userId    String
+  skill     String
+  level     SkillLevel
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, skill])
+}
+
+// Skill level enum
+enum SkillLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+// Education model for user education history
+model Education {
+  id          String   @id @default(cuid())
+  userId      String
+  school      String
+  degree      String
+  fieldOfStudy String
+  startDate   DateTime
+  endDate     DateTime?
+  current     Boolean  @default(false)
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Experience model for user work experience
+model Experience {
+  id          String   @id @default(cuid())
+  userId      String
+  title       String
+  company     String
+  location    String?
+  startDate   DateTime
+  endDate     DateTime?
+  current     Boolean  @default(false)
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Social links model for user social media profiles
+model SocialLink {
+  id        String   @id @default(cuid())
+  userId    String
+  platform  String
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Job model for job listings
+model Job {
+  id          String   @id @default(cuid())
+  title       String
+  company     String
+  location    String
+  type        JobType
+  description String
+  requirements String[]
+  benefits    String[]
+  salary      String?
+  postedDate  DateTime @default(now())
+  expiryDate  DateTime?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  companyId   String?
+  
+  // Relations
+  applications JobApplication[]
+  savedJobs    SavedJob[]
+  skills       JobSkill[]
+  companyInfo  Company? @relation(fields: [companyId], references: [id])
+}
+
+// Job type enum
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+  REMOTE
+  HYBRID
+}
+
+// Job application model for tracking job applications
+model JobApplication {
+  id          String   @id @default(cuid())
+  userId      String
+  jobId       String
+  status      ApplicationStatus @default(APPLIED)
+  coverLetter String?
+  resumeUrl   String?
+  appliedDate DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job         Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+}
+
+// Application status enum
+enum ApplicationStatus {
+  APPLIED
+  REVIEWING
+  INTERVIEWING
+  OFFERED
+  REJECTED
+  WITHDRAWN
+}
+
+// Saved job model for users to save jobs
+model SavedJob {
+  id        String   @id @default(cuid())
+  userId    String
+  jobId     String
+  createdAt DateTime @default(now())
+  
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, jobId])
+}
+
+// Job skill model for required skills in jobs
+model JobSkill {
+  id        String   @id @default(cuid())
+  jobId     String
+  skill     String
+  createdAt DateTime @default(now())
+  
+  // Relations
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  
+  @@unique([jobId, skill])
+}
+
+// Company model for company information
+model Company {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  website     String?
+  logo        String?
+  size        String?
+  industry    String?
+  location    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  jobs        Job[]
+}
+
+// Course model for skills learning
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  provider    String
+  instructor  String
+  description String
+  duration    String
+  level       CourseLevel
+  price       Float?
+  isFree      Boolean  @default(false)
+  rating      Float    @default(0)
+  reviewCount Int      @default(0)
+  studentCount Int     @default(0)
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  enrollments CourseEnrollment[]
+  progress    CourseProgress[]
+  curriculum  CourseModule[]
+  skills      CourseSkill[]
+}
+
+// Course level enum
+enum CourseLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  ALL_LEVELS
+}
+
+// Course enrollment model for tracking enrolled courses
+model CourseEnrollment {
+  id          String   @id @default(cuid())
+  userId      String
+  courseId    String
+  enrolledAt  DateTime @default(now())
+  completedAt DateTime?
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, courseId])
+}
+
+// Course progress model for tracking learning progress
+model CourseProgress {
+  id          String   @id @default(cuid())
+  userId      String
+  courseId    String
+  moduleId    String
+  lessonId    String
+  completed   Boolean  @default(false)
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, courseId, moduleId, lessonId])
+}
+
+// Course module model for course structure
+model CourseModule {
+  id          String   @id @default(cuid())
+  courseId    String
+  title       String
+  description String?
+  order       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons     CourseLesson[]
+}
+
+// Course lesson model for individual lessons
+model CourseLesson {
+  id          String   @id @default(cuid())
+  moduleId    String
+  title       String
+  description String?
+  content     String?
+  videoUrl    String?
+  duration    String?
+  order       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  module      CourseModule @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+}
+
+// Course skill model for skills taught in courses
+model CourseSkill {
+  id        String   @id @default(cuid())
+  courseId  String
+  skill     String
+  createdAt DateTime @default(now())
+  
+  // Relations
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  @@unique([courseId, skill])
+}
+
+// Mentor connection model for mentorship relationships
+model MentorConnection {
+  id          String   @id @default(cuid())
+  mentorId    String
+  menteeId    String
+  status      ConnectionStatus @default(PENDING)
+  startDate   DateTime?
+  endDate     DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  mentor      User     @relation("MentorConnections", fields: [mentorId], references: [id], onDelete: Cascade)
+  mentee      User     @relation("MenteeConnections", fields: [menteeId], references: [id], onDelete: Cascade)
+  sessions    MentorSession[]
+}
+
+// Connection status enum
+enum ConnectionStatus {
+  PENDING
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+// Mentor request model for mentorship requests
+model MentorRequest {
+  id          String   @id @default(cuid())
+  mentorId    String
+  menteeId    String
+  message     String?
+  status      RequestStatus @default(PENDING)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  mentor      User     @relation("MentorRequests", fields: [mentorId], references: [id], onDelete: Cascade)
+  mentee      User     @relation("MenteeRequests", fields: [menteeId], references: [id], onDelete: Cascade)
+}
+
+// Request status enum
+enum RequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+// Mentor session model for scheduled sessions
+model MentorSession {
+  id          String   @id @default(cuid())
+  connectionId String
+  startTime   DateTime
+  endTime     DateTime
+  status      SessionStatus @default(SCHEDULED)
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  connection  MentorConnection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+}
+
+// Session status enum
+enum SessionStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+// Message model for chat between users
+model Message {
+  id          String   @id @default(cuid())
+  senderId    String
+  receiverId  String
+  content     String
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  
+  // Relations
+  sender      User     @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver    User     @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+}
+
+// Notification model for user notifications
+model Notification {
+  id          String   @id @default(cuid())
+  userId      String
+  type        NotificationType
+  title       String
+  message     String
+  read        Boolean  @default(false)
+  link        String?
+  createdAt   DateTime @default(now())
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Notification type enum
+enum NotificationType {
+  JOB
+  APPLICATION
+  SKILL
+  MENTOR
+  SYSTEM
+}

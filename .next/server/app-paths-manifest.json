@@ -1,0 +1,12 @@
+{
+  "/login/page": "app/login/page.js",
+  "/api/users/me/route": "app/api/users/me/route.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/api/notifications/unread-count/route": "app/api/notifications/unread-count/route.js",
+  "/api/notifications/route": "app/api/notifications/route.js",
+  "/dashboard/notifications/page": "app/dashboard/notifications/page.js",
+  "/dashboard/skills/page": "app/dashboard/skills/page.js",
+  "/dashboard/mentorship/page": "app/dashboard/mentorship/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/jobs/page": "app/dashboard/jobs/page.js"
+}
