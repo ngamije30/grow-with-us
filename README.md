@@ -12,7 +12,7 @@ What: Limited access to job opportunities and skill development resources, which
 When: This problem has been persistent for decades but is becoming increasingly urgent with Africa’s growing youth population and evolving job market demands in the digital age.
 Where: Across Africa, especially in rural areas and regions with limited infrastructure and access to educational resources.
 Why: Despite having immense potential, many young Africans lack the tools, connections, and training needed to compete in today’s job market. Employers, on the other hand, struggle to find skilled talent to meet their needs. This disconnect perpetuates cycles of poverty and underemployment.
-How: The website will address these challenges by acting as a bridge between job seekers and employers, offering a user-friendly platform with features such as job postings, virtual training programs, mentorship opportunities, and career guidance. It will also leverage partnerships with businesses, educational institutions, and NGOs to maximize its impact and reach.
+How: The website will address these challenges by acting as a bridge between job seekers and employers, offering a user-friendly platform with features such as job postings, virtual training programs, mentorship opportunities, and career guidance. It will also leverage partnerships with businesses, educational institutions, and NGOs to maximize its impact and reach.  GrowWithUs website = http://localhost:3000
 
 
 ## Features
