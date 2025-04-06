@@ -1,6 +1,19 @@
 # Grow withUs
 
-Grow withUs is a comprehensive platform designed to help young people search for jobs and gain necessary skills across Africa. The platform addresses the limited access to job opportunities and skills gap that prevents many from securing meaningful employment.
+
+Description of the concept of their Mission; 
+My mission is to design a website that will encourage young people to search for jobs and gain necessary skills to do any dream job of theirs all over Africa due to the limited access to job opportunities and the skills gap that prevents many from securing meaningful employment and this design will differ from other design regarding that the design will be able to keep track of its users where they go and also use provided mentors on the website to learn and help them achieve their goal.
+
+Problem statement: 
+My problem statement is that Young Africans, particularly in underserved areas, face barriers to employment due to limited job opportunities and skill-building resources. The growing youth population and digital demands exacerbate this. Employers struggle to find skilled talent, perpetuating underemployment. A website featuring job posts, training, mentorship, and partnerships will bridge this gap and drive impact.
+So my problem statement regards: 
+Who: Young people across Africa, particularly those in underserved communities, facing barriers to employment and career growth. 
+What: Limited access to job opportunities and skill development resources, which hinders their ability to secure meaningful employment and achieve their career aspirations.
+When: This problem has been persistent for decades but is becoming increasingly urgent with Africa’s growing youth population and evolving job market demands in the digital age.
+Where: Across Africa, especially in rural areas and regions with limited infrastructure and access to educational resources.
+Why: Despite having immense potential, many young Africans lack the tools, connections, and training needed to compete in today’s job market. Employers, on the other hand, struggle to find skilled talent to meet their needs. This disconnect perpetuates cycles of poverty and underemployment.
+How: The website will address these challenges by acting as a bridge between job seekers and employers, offering a user-friendly platform with features such as job postings, virtual training programs, mentorship opportunities, and career guidance. It will also leverage partnerships with businesses, educational institutions, and NGOs to maximize its impact and reach.
+
 
 ## Features
 
